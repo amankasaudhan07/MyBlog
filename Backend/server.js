@@ -1,3 +1,4 @@
+
 const express = require("express");
 const app= express();
 
@@ -10,11 +11,14 @@ const userRoutes = require("./routes/user");
 
 const PORT = process.env.PORT || 4000;
 
+
 app.use(
     cors({
       origin: "*",
     })
   );
+
+
 
   // Middleware
   app.use(express.json());
