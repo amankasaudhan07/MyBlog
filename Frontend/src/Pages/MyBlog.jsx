@@ -8,7 +8,7 @@ const  MyBlog = () => {
   const getAllData = async () => {
     try {
       const getPeople = await fetch(
-        `https://myblog-p0w3.onrender.com/showBlog`,
+        `https://myblog-p0w3.onrender.com/api/v1/showBlog`,
         {
           method: "GET",
           headers: {
