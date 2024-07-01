@@ -10,7 +10,7 @@ const EmployeeForm = () => {
   const createBlog = async (data) => {
 
     const savedUserResponse = await fetch(
-      `${process.env.REACT_APP_BASE_URL}/addBlog`,
+      `https://myblog-p0w3.onrender.com/api/v1/addBlog`,
       {
         method: "POST",
         headers: {
