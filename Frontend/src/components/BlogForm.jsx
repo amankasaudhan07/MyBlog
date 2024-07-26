@@ -1,11 +1,12 @@
-import React from "react";
+import React ,{useContext} from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
+import { AppContext } from "../context/AppContext";
 
 const EmployeeForm = () => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
+   const {getAllData} =useContext(AppContext);
 
   const createBlog = async (data) => {
 
@@ -21,7 +22,7 @@ const EmployeeForm = () => {
     );
 
     console.log("FORM RESPONSE......", savedUserResponse);
-
+   getAllData();
     navigate("/showMyBlog")
   };
 
