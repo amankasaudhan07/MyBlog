@@ -39,6 +39,31 @@ export default function AppContextProvider({ children }) {
     setLoading(false);
   };
 
+    // get Myblog data
+  const [empData, setEmpData] = useState();
+  const getAllData = async () => {
+    try {
+      const getPeople = await fetch(
+        `${process.env.REACT_APP_BASE_URL}/showBlog`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      const res = await getPeople.json();
+      setEmpData(res);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAllData();
+  },[]);
+
   // Handle When Next and Previous button are clicked
   const handlePageChange = (page) => {
     navigate( { search: `?page=${page}`});
@@ -56,6 +81,8 @@ export default function AppContextProvider({ children }) {
     setTotalPages,
     fetchBlogPosts,
     handlePageChange,
+    empData,
+    getAllData,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
