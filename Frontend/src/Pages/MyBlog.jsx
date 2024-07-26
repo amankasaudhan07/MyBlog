@@ -1,32 +1,37 @@
 import React, { useEffect, useState } from "react";
 import MyBlogDetails from "../components/MyBlogDetails";
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom';
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
 
 const  MyBlog = () => {
-  const [empData, setEmpData] = useState();
 
-  const getAllData = async () => {
-    try {
-      const getPeople = await fetch(
-        `https://myblog-p0w3.onrender.com/api/v1/showBlog`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+   const {empData} =useContext(AppContext);
+  
+  // const [empData, setEmpData] = useState();
 
-      const res = await getPeople.json();
-      setEmpData(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getAllData = async () => {
+  //   try {
+  //     const getPeople = await fetch(
+  //       `https://myblog-p0w3.onrender.com/api/v1/showBlog`,
+  //       {
+  //         method: "GET",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //       }
+  //     );
 
-  useEffect(() => {
-    getAllData();
-  },[]);
+  //     const res = await getPeople.json();
+  //     setEmpData(res);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   getAllData();
+  // },[]);
   console.log(empData);
   return (
   <div>
