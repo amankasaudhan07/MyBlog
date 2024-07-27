@@ -56,7 +56,7 @@ const  MyBlog = () => {
           <p className="text-center font-bold text-3xl">No Blogs Found !</p>
         </div>
       ) : ( empData?.data.map((person) => (
-           <MyBlogDetails key={person.id} post={person}/>
+           <MyBlogDetails key={person._id} post={person}/>
 
         )))}
       
