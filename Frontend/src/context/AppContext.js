@@ -44,7 +44,7 @@ export default function AppContextProvider({ children }) {
   const getAllData = async () => {
     try {
       const getPeople = await fetch(
-        `${process.env.REACT_APP_BASE_URL}/showBlog`,
+        `https://myblog-p0w3.onrender.com/api/v1/showBlog`,
         {
           method: "GET",
           headers: {
